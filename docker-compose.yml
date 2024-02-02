@@ -4,9 +4,13 @@ services:
     image: postgres:15.5
     restart: always
     environment:
-      POSTGRES_PASSWORD: def12345
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'def12345'
+      POSTGRES_DB: 'app'
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
   adminer:
     image: adminer
